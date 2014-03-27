@@ -52,13 +52,20 @@
 
 - (id)initWithPinLength:(NSUInteger)pinLength
 {
-    self = [self init];
+    self = [super init];
     if (self)
     {
-        _pinLength = pinLength;
+        if (pinLength > 0) {
+            _pinLength = pinLength;
+        }
+        else {
+            _pinLength = 4;
+        }
+        _currentPin = @"";
     }
     return self;
 }
+
 
 #pragma mark -
 #pragma mark - View Controller Lifecycele Methods
